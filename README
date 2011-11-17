@@ -3,8 +3,9 @@ My HomeWork done on CodeSchool for JQuery AIR Captain Log course.
 1.1 : HTML Value
 Get the html() of the first seat (the <li>) in .economy-class. Reference the "Rendered HTML" and "HTML Source" tabs below.
 
-$('#seats ol.ec­onomy-clas­s > li > ol > li:fi­rst').html­();
+$('#seats ol.ec­onomy-clas­s > li > ol > li:first').html­();
 
 1.2 : Text Value
 Now get the text() of the <a> tag in that same first seat in .economy-class. You can use the up arrow to cycle through submitted code.
 
+$('#seats .econ­omy-class ol  li:fi­rst a').t­ext();
