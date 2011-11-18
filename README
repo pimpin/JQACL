@@ -24,3 +24,14 @@ $('#seats .econ­omy-class li.ro­w:eq(1)  li:eq­(3) a').a­ttr('href'­);
 Great! Using the same a tag, get the value of the 'data-seat' attribute. The html() of the 4th seat (the li) under the 2nd li.row in .economy-class.
 
 $('#seats .econ­omy-class li.ro­w:eq(1)  li:eq­(3) a').data('seat');
+
+1.6 : Click Event
+When a seat is clicked remove the selected class from all seats and add it to the one clicked. Don't forget to prevent default. Use the shorthand .click() method.
+
+function changeSelectedSeat(e) {
+  e.preventDefault();
+  $('.seating-chart a.available').removeClass('selected');
+  $(this).addClass('selected');
+}
+
+$('div.seating-chart a.available').click(changeSelectedSeat);
