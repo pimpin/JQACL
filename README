@@ -37,7 +37,7 @@ function changeSelectedSeat(e) {
 $('div.seating-chart a.available').click(changeSelectedSeat);
 
 1.7 : Bind Clinck Event
-Use bind() instead of click() to set up the click handler. => Evite les appels ajax renouvelés et inutiles
+Use bind() instead of click() to set up the click handler. => autre manière de lier l'évènement à l'appels ajax renouvelés.
 
 $('div.seating-chart a.available').bind({click: selectSeat});
 
@@ -54,7 +54,7 @@ function selectSeat(e) {
 
 $('div.seating-chart li a.available').click(selectSeat);
 
-1.9 : Unbind Event => rétablir le binding des appels ajax renouvelés opportunément
+1.9 : Unbind Event => détruit le binding des appels ajax renouvelés inopportunément
 In the selectSeat function unbind the click event from the seat that was clicked (this). Then re-bind the selectSeat click event on the unselected seat.
 
 function selectSeat(e) {
@@ -66,3 +66,9 @@ function selectSeat(e) {
 }
 
 $('div.seating-chart li a.available').click(selectSeat);
+
+1.10 Multiple Click Handlers
+First revise the selector below so the selectSeat click event only happens on .economy-class seats. Then write a new selector for first class available seats and add a click event which calls selectFirstClass. Tip: Notice the new 'javascript' tab below.
+
+$('div.seating-chart .economy-class li a.available').click(selectSeat);
+$('div.seating-chart .first-class li a.available').click(selectFirstClass);
