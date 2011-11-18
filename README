@@ -30,7 +30,7 @@ When a seat is clicked remove the selected class from all seats and add it to th
 
 function changeSelectedSeat(e) {
   e.preventDefault();
-  $('.seating-chart a.available').removeClass('selected');
+  $('.seating-chart a.selected').removeClass('selected');
   $(this).addClass('selected');
 }
 
@@ -40,3 +40,16 @@ $('div.seating-chart a.available').click(changeSelectedSeat);
 Use bind() instead of click() to set up the click handler. => Evite les appels ajax renouvelés et inutiles
 
 $('div.seating-chart a.available').bind({click: selectSeat});
+
+1.8 : Using Data Attributes
+When a seat is clicked, set the text contents of #seatSelected to the data-seat attribute (e.g. 2A, 4D) from the selected seat (this), and then show the #confirm-seat div.
+
+function selectSeat(e) {
+  e.preventDefault();
+  $('.selected').removeClass('selected');
+  $(this).addClass('selected');
+  $('#seatSelected').text($(this).data('seat'));
+  $('div#confirm-seat').show();
+}
+
+$('div.seating-chart li a.available').click(selectSeat);
