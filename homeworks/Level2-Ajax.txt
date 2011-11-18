@@ -1,0 +1,12 @@
+2.1 $.ajax
+Change fetchFirstClassConfirm to use $.ajax to fetch the confirmation html. Make a request to the url '/flights/' + flight_id. On success, set the html inside the #confirm-first-class div to the result and then show the div.
+
+function fetchFirstClassConfirm() {
+  var flight_id = 815;
+  
+  $.ajax('/flights/' + flight_id , {
+    success: function(result) {
+      $('div#confirm-first-class').html(result).show();
+    }
+  });
+}
