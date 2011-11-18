@@ -1,0 +1,82 @@
+1.1 : HTML Value
+Get the html() of the first seat (the <li>) in .economy-class. Reference the "Rendered HTML" and "HTML Source" tabs below.
+
+$('#seats ol.ec­onomy-clas­s > li > ol > li:first').html­();
+
+1.2 : Text Value
+Now get the text() of the <a> tag in that same first seat in .economy-class. You can use the up arrow to cycle through submitted code.
+
+$('#seats .econ­omy-class ol  li:fi­rst a').t­ext();
+
+1.3 : Text ValueII
+Get the html() of the 4th seat (the li) under the 2nd li.row in .economy-class. You'll want to use eq(#) two times. Tip: Don't forget the first row starts at 0.
+
+$('#seats .econ­omy-class li.ro­w:eq(1)  li:eq­(3)').html­();
+
+1.4 : Attributes
+Now get the href attribute on the a tag defined under that same seat. The 4th seat (the li) under the 2nd li.row in .economy-class.
+
+$('#seats .econ­omy-class li.ro­w:eq(1)  li:eq­(3) a').a­ttr('href'­);
+
+1.5 : Data Attributes
+Great! Using the same a tag, get the value of the 'data-seat' attribute. The html() of the 4th seat (the li) under the 2nd li.row in .economy-class.
+
+$('#seats .econ­omy-class li.ro­w:eq(1)  li:eq­(3) a').data('seat');
+
+1.6 : Click Event
+When a seat is clicked remove the selected class from all seats and add it to the one clicked. Don't forget to prevent default. Use the shorthand .click() method.
+
+function changeSelectedSeat(e) {
+  e.preventDefault();
+  $('.seating-chart a.selected').removeClass('selected');
+  $(this).addClass('selected');
+}
+
+$('div.seating-chart a.available').click(changeSelectedSeat);
+
+1.7 : Bind Clinck Event
+Use bind() instead of click() to set up the click handler. => autre manière de lier l'évènement à l'appels ajax renouvelés.
+
+$('div.seating-chart a.available').bind({click: selectSeat});
+
+1.8 : Using Data Attributes
+When a seat is clicked, set the text contents of #seatSelected to the data-seat attribute (e.g. 2A, 4D) from the selected seat (this), and then show the #confirm-seat div.
+
+function selectSeat(e) {
+  e.preventDefault();
+  $('.selected').removeClass('selected');
+  $(this).addClass('selected');
+  $('#seatSelected').text($(this).data('seat'));
+  $('div#confirm-seat').show();
+}
+
+$('div.seating-chart li a.available').click(selectSeat);
+
+1.9 : Unbind Event => détruit le binding des appels ajax renouvelés inopportunément
+In the selectSeat function unbind the click event from the seat that was clicked (this). Then re-bind the selectSeat click event on the unselected seat.
+
+function selectSeat(e) {
+  e.preventDefault();
+  $('.selected').removeClass('selected');
+  $(this).addClass('selected').unbind('click', selectSeat);
+  $('#seatSelected').text($(this).data('seat'));
+  $('#confirm-seat').show();
+}
+
+$('div.seating-chart li a.available').click(selectSeat);
+
+1.10 Multiple Click Handlers
+First revise the selector below so the selectSeat click event only happens on .economy-class seats. Then write a new selector for first class available seats and add a click event which calls selectFirstClass. Tip: Notice the new 'javascript' tab below.
+
+$('div.seating-chart .economy-class li a.available').click(selectSeat);
+$('div.seating-chart .first-class li a.available').click(selectFirstClass);
+
+1.11 Live
+Create a live click event on the a.confirm-upgrade link which will call confirmUpgrade. Note: This link is rendered using AJAX from the server, you're not going to see it in the source. => Surveille l'ensemble du DOM /!\ A optimiser en ciblant mieux via un délégué.
+
+$('a.confirm-upgrade').live('click', confirmUpgrade);
+
+1.12 Delegate
+Change the live function to a delegate function.
+
+$('#confirm-first-class').delegate('a.confirm-upgrade', 'click', confirmUpgrade);
