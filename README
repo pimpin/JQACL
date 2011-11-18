@@ -35,3 +35,8 @@ function changeSelectedSeat(e) {
 }
 
 $('div.seating-chart a.available').click(changeSelectedSeat);
+
+1.7 : Bind Clinck Event
+Use bind() instead of click() to set up the click handler. => Evite les appels ajax renouvelés et inutiles
+
+$('div.seating-chart a.available').bind({click: selectSeat});
