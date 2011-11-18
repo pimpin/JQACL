@@ -14,3 +14,8 @@ $('#seats .econ­omy-class ol  li:fi­rst a').t­ext();
 Get the html() of the 4th seat (the li) under the 2nd li.row in .economy-class. You'll want to use eq(#) two times. Tip: Don't forget the first row starts at 0.
 
 $('#seats .econ­omy-class li.ro­w:eq(1)  li:eq­(3)').html­();
+
+1.4 : Attributes
+Now get the href attribute on the a tag defined under that same seat. The 4th seat (the li) under the 2nd li.row in .economy-class.
+
+$('#seats .econ­omy-class li.ro­w:eq(1)  li:eq­(3) a').a­ttr('href'­);
