@@ -51,3 +51,22 @@ function viewAlternateFlight() {
 
 // don't need to update this:
 $('#flight-navigation a').click(viewAlternateFlight)
+
+2.4 : Refactor $.ajax II
+Lets implement the same function differently. Notice in the html source how the href of the View Earlier/Later Flight links already have the proper direction and flight_id? Fetch that href and set it equal to the url below.
+
+=> warn Greg of need a test to check presence of preventDefault
+
+function viewAlternateFlight() {      
+  var url = $(this).attr('href');
+  
+  $.ajax(url, {
+    type: 'GET',
+    success: function(result) {
+      $('.seating-chart').html(result);
+    }
+  });
+}
+
+// don't need to update this:
+$('#flight-navigation a').click(viewAlternateFlight)
