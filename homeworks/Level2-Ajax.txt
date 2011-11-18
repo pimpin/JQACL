@@ -29,3 +29,25 @@ function fetchFirstClassConfirm() {
     }
   });
 }
+
+2.3 : $.ajax II
+Notice the View Earlier/Later Flights links, and the jQuery code below which uses them. Complete the function below properly setting the rel attribute of this clicked link. Then use the data parameter to send the JSON value { direction: rel }.
+
+=> I notce Greg to change html src and add a test to check presence of preventDefaut in solution.
+
+function viewAlternateFlight() {
+  var flight_id = 815;
+
+  var rel = $(this).attr('rel');
+
+  $.ajax('/flights/' + flight_id, {
+    data: { direction: rel },
+    type: "GET",
+    success: function(result) {
+      $('.seating-chart').html(result);
+    }
+  })
+}
+
+// don't need to update this:
+$('#flight-navigation a').click(viewAlternateFlight)
