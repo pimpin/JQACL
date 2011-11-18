@@ -70,3 +70,8 @@ function viewAlternateFlight() {
 
 // don't need to update this:
 $('#flight-navigation a').click(viewAlternateFlight)
+
+2.5 Delegate
+To make the "View Earlier Flights" and "View Later Flights" buttons work, have them use a single .delegate to call viewAlternateFlight on click.
+
+$('#flight-navigation').delegate('a', 'click', viewAlternateFlight);
