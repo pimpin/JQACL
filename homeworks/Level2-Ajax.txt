@@ -10,3 +10,22 @@ function fetchFirstClassConfirm() {
     }
   });
 }
+
+2.2 Error Callback
+Update the $.ajax call to add cache: false and a timeout of 7000ms. Add an error callback which updates the #confirm-first-class div with 'Unable to pull seat price, please select another seat' and then shows it. 
+
+function fetchFirstClassConfirm() {
+  var flight_id = 815;
+
+  $.ajax('/flights/' + flight_id, {
+    type: 'GET',
+    cache: false,
+    timeout: 7000,
+    success: function(result) {
+      $('#confirm-first-class').html(result).show();
+    },
+    error: function(err) {
+      $('div#confirm-first-class').html("Unable to pull seat price, please select another seat").show();
+    }
+  });
+}
