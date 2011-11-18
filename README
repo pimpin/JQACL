@@ -9,3 +9,8 @@ $('#seats ol.ec­onomy-clas­s > li > ol > li:first').html­();
 Now get the text() of the <a> tag in that same first seat in .economy-class. You can use the up arrow to cycle through submitted code.
 
 $('#seats .econ­omy-class ol  li:fi­rst a').t­ext();
+
+1.3 : Text ValueII
+Get the html() of the 4th seat (the li) under the 2nd li.row in .economy-class. You'll want to use eq(#) two times. Tip: Don't forget the first row starts at 0.
+
+$('#seats .econ­omy-class li.ro­w:eq(1)  li:eq­(3)').html­();
