@@ -77,3 +77,8 @@ $('div.seating-chart .first-class li a.available').click(selectFirstClass);
 Create a live click event on the a.confirm-upgrade link which will call confirmUpgrade. Note: This link is rendered using AJAX from the server, you're not going to see it in the source. => Surveille l'ensemble du DOM /!\ A optimiser en ciblant mieux via un délégué.
 
 $('a.confirm-upgrade').live('click', confirmUpgrade);
+
+1.12 Delegate
+Change the live function to a delegate function.
+
+$('#confirm-first-class').delegate('a.confirm-upgrade', 'click', confirmUpgrade);
