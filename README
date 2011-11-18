@@ -53,3 +53,16 @@ function selectSeat(e) {
 }
 
 $('div.seating-chart li a.available').click(selectSeat);
+
+1.9 : Unbind Event => rétablir le binding des appels ajax renouvelés opportunément
+In the selectSeat function unbind the click event from the seat that was clicked (this). Then re-bind the selectSeat click event on the unselected seat.
+
+function selectSeat(e) {
+  e.preventDefault();
+  $('.selected').removeClass('selected');
+  $(this).addClass('selected').unbind('click', selectSeat);
+  $('#seatSelected').text($(this).data('seat'));
+  $('#confirm-seat').show();
+}
+
+$('div.seating-chart li a.available').click(selectSeat);
