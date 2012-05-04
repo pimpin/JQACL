@@ -22,15 +22,15 @@ body{color:#4c3f31;font:normal 62.5%/1.3em "Lucida Sans Unicode","Lucida Sans",G
 strong{font-family:"Lucida Sans", Geneva, Arial, sans-serif}
 p{font-size:1.3em;line-height:1.3em}
 header{-webkit-border-radius:10px 10px 0 0;-moz-border-radius:10px 10px 0 0;-o-border-radius:10px 10px 0 0;border-radius:10px 10px 0 0;margin:0 auto 20px;padding:8px 0;text-align:center}
-h1{border-bottom:1px solid #ccc8c3;color:#7d8385;font:bold 3em/1em,"Lucida Sans",Geneva,sans-serif;padding-bottom:20px;text-transform:uppercase}
-h2{font:bold 2.2em/1em,"Lucida Sans",Geneva,sans-serif;margin:0 0 5px}
-h4{color:#717b7c;font:bold 1.8em/1em,"Lucida Sans",Geneva,sans-serif;letter-spacing:0.05em;margin:0 0 8px}
+h1{border-bottom:1px solid #ccc8c3;color:#7d8385;font:bold 3em/1em "Lucida Sans",Geneva,sans-serif;padding-bottom:20px;text-transform:uppercase}
+h2{font:bold 2.2em/1em "Lucida Sans",Geneva,sans-serif;margin:0 0 5px}
+h4{color:#717b7c;font:bold 1.8em/1em "Lucida Sans",Geneva,sans-serif;letter-spacing:0.05em;margin:0 0 8px}
 
 /* cabine part */
 #seats{margin:0 auto 20px;width:440px}
 #seats p{border-bottom:1px solid #ccc;margin-bottom:10px;padding-bottom:10px}
 #seats .seating-chart{float:left;margin-right:20px;overflow:visible}
-#seats .seating-chart h3{color:#cc3e2e;font:bold 1.6em , "Lucida Sans", Geneva, sans-serif;margin-bottom:10px;text-align:center;text-transform:uppercase}
+#seats .seating-chart h3{color:#cc3e2e;font:bold 1.6em "Lucida Sans", Geneva, sans-serif;margin-bottom:10px;text-align:center;text-transform:uppercase}
 #seats ol .row{margin:0 0 4px}
 #seats ol ol li{float:left;margin-right:6px}
 #seats ol ol li:nth-child(3){margin-right:38px}
